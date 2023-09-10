@@ -25,7 +25,7 @@ class CLIPTextEncodePerpWeight:
                 weight = tokens[i][j][1]
                 if weight != 1.0:
                     token_vector = unweighted_cond[i][j]
-                    zero_vector = empty_cond[i][j]
+                    zero_vector = empty_cond[0][j]
                     perp = ((torch.mul(zero_vector, token_vector).sum())/(torch.norm(token_vector)**2)) * token_vector
                     cond[i][j] = token_vector + (weight * perp)
         
