@@ -14,7 +14,7 @@ class CLIPTextEncodePerpWeight:
 
     def encode(self, clip, text):
         empty_tokens = clip.tokenize("")
-        empty_cond = clip.encode_from_tokens(empty_tokens, return_pooled=False)
+        empty_cond, empty_cond_pooled = clip.encode_from_tokens(empty_tokens, return_pooled=True)
         tokens = clip.tokenize(text)
         unweighted_tokens = [[(t, 1.0) for t,_ in x] for x in tokens]
         unweighted_cond, unweighted_pooled = clip.encode_from_tokens(unweighted_tokens, return_pooled=True)
@@ -33,9 +33,9 @@ class CLIPTextEncodePerpWeight:
 
 
 NODE_CLASS_MAPPINGS = {
-    "CLIPTextEncodeMultiLayer": CLIPTextEncodePerpWeight,
+    "CLIPTextEncodePerpWeight": CLIPTextEncodePerpWeight,
 }
 
 NODE_DISPLAY_NAME_MAPPINGS = {
-    "CLIPTextEncodeMultiLayer": "CLIP Text Encode (Perp-Weight)",
+    "CLIPTextEncodePerpWeight": "CLIP Text Encode (Perp-Weight)",
 }
