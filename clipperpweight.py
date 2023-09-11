@@ -15,6 +15,7 @@ class CLIPTextEncodePerpWeight:
     def encode(self, clip, text):
         empty_tokens = clip.tokenize("")
 
+        sdxl_flag = False
         if isinstance(empty_tokens, dict):
             sdxl_flag = True
         
