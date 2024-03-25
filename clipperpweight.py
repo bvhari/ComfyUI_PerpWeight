@@ -87,7 +87,7 @@ class CLIPTextEncodePerpWeight:
                             cond[i][j] = token_vector + (weight * perp)
                         elif (weight > 0.0) and (weight < 1.0):
                             cond[i][j] = weight * token_vector
-                        elif (weight > -1.0) and (weight_g < 0.0):
+                        elif (weight > -1.0) and (weight < 0.0):
                             cond[i][j] = -1 * (zero_vector + (abs(weight) * (token_vector - zero_vector)))
                         elif weight == -1.0:
                             cond[i][j] = -1 * token_vector
