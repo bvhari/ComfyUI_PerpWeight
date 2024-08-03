@@ -2,7 +2,7 @@
 name = "comfyui_perpweight"
 description = "A novel weighting scheme for token vectors from CLIP. Allows a wider range of values for the weight. Inspired by Perp-Neg."
 version = "1.0.0"
-license = "GPL-3.0"
+license = { text = "GNU General Public License v3.0" }
 
 [project.urls]
 Repository = "https://github.com/bvhari/ComfyUI_PerpWeight"
